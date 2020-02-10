@@ -1,26 +1,29 @@
 {
-    "name": "wordboot/wp-plugin-framework",
-    "description": "A plugin framework for WordPress",
-    "type": "library",
-    "license": "GPL-3.0+",
-    "authors": [
-        {
-            "name": "Rahul Arya",
-            "email": "team@wordboot.com"
-        }
-    ],
-    "minimum-stability": "stable",
-    "autoload": {
-        "psr-4": {
-            "WPPF\\": "src/"
-        },
-        "files": [
-            "src/constants.php",
-            "src/helpers.php"
-        ]
-    },
-    "require": {},
-    "require-dev": {
-        "phpunit/phpunit": "^8.5"
-    }
+	"name": "wordboot/wp-plugin-framework",
+	"description": "A plugin framework for WordPress",
+	"type": "library",
+	"license": "GPL-3.0+",
+	"authors": [
+		{
+			"name": "Rahul Arya",
+			"email": "team@wordboot.com"
+		}
+	],
+	"minimum-stability": "stable",
+	"autoload": {
+		"psr-4": {
+			"WPPF\\": "src/"
+		},
+		"files": [
+			"src/constants.php",
+			"src/helpers.php"
+		]
+	},
+	"scripts": {
+		"test": "vendor/bin/phpunit"
+	},
+	"require": {},
+	"require-dev": {
+		"phpunit/phpunit": "^8.5"
+	}
 }
