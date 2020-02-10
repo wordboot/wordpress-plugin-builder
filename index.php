@@ -1,0 +1,4 @@
+<?php
+/**
+ * Intentionally left blank.
+ */
