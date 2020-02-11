@@ -7,11 +7,5 @@
  * @since      1.0.0
  */
 
-/**
- * Class defines tests for Singleton.
- *
- * @since 1.0.0
- */
-class Singleton_Test extends WP_UnitTestCase {
+use WPPF\Classes\Singleton;
 
-}

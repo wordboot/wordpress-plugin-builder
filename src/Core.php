@@ -59,7 +59,44 @@ class Core {
 	 * @access   private
 	 */
 	private function on_initialization() {
+		$this->check_constants();
+
+		// Register activation hook.
+		register_activation_hook(
+			WPPF_PLUGIN_FILE,
+			array( 'WPPF\Classes\Activation', 'get_instance' )
+		);
+
+		// Register activation hook.
+		register_deactivation_hook(
+			WPPF_PLUGIN_FILE,
+			array( 'WPPF\Classes\Deactivation', 'get_instance' )
+		);
+
 		$this->set_locale();
+	}
+
+	/**
+	 * Check for required constants are defined or not.
+	 *
+	 * @since 1.0.0
+	 * @throws \Exception Throws when constants are not defined.
+	 * @return void
+	 */
+	private function check_constants() {
+		$constants = array( 'WPPF_PLUGIN_FILE', 'WPPF_PLUGIN_DIR' );
+
+		foreach ( $constants as $c ) {
+			if ( ! defined( $c ) ) {
+				throw new \Exception(
+					sprintf(
+						// translators: %s is the name of constant.
+						__( 'Constant %s is not defined. Please define it before calling wppf()', 'wppf' ),
+						$c
+					)
+				);
+			}
+		}
 	}
 
 	/**
