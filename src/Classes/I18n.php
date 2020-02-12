@@ -28,11 +28,11 @@ class I18n {
 	 * @return void
 	 */
 	private function on_initialization() {
-		$this->add_action( 'plugins_loaded', 'load_framework_translations' );
+		$this->add_action( 'plugins_loaded@load_framework_translations' );
 
 		// Load plugin translation if constant defied.
 		if ( defined( 'WPPF_PLUGIN_TEXTDOMAIN' ) ) {
-			$this->add_action( 'plugins_loaded', 'load_translations' );
+			$this->add_action( 'plugins_loaded@load_translations' );
 		}
 	}
 
@@ -41,7 +41,7 @@ class I18n {
 	 *
 	 * @return void
 	 */
-	private function load_framework_translations() {
+	private function hook_load_framework_translations() {
 		load_plugin_textdomain(
 			'wppf',
 			false,
@@ -54,7 +54,7 @@ class I18n {
 	 *
 	 * @return void
 	 */
-	private function load_translation() {
+	private function hook_load_translations() {
 		load_plugin_textdomain(
 			WPPF_PLUGIN_TEXTDOMAIN,
 			false,

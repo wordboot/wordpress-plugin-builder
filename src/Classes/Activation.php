@@ -7,6 +7,7 @@
  * @package    WPPF
  * @subpackage classes
  */
+
 namespace WPPF\Classes;
 
 // Exit if accessed directly.
