@@ -14,6 +14,7 @@ namespace WPPF;
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+use WPPF\Classes\CptLoader;
 use WPPF\Classes\I18n;
 use WPPF\Classes\Singleton;
 
@@ -48,9 +49,20 @@ class Core {
 	/**
 	 * Framework locale.
 	 *
+	 * @since    1.0.0
+	 *
 	 * @var Classes\I18n
 	 */
 	public $i18n;
+
+	/**
+	 * Framework custom post types.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var Classes\CptLoader
+	 */
+	public $cpt;
 
 	/**
 	 * Load the required dependencies for this plugin.
@@ -107,6 +119,7 @@ class Core {
 	 */
 	private function set_locale() {
 		$this->i18n = I18n::get_instance();
+		$this->cpt  = CptLoader::get_instance();
 	}
 
 	/**
